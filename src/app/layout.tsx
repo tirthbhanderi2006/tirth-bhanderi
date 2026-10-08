@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     title: "Tirth Bhanderi | Software Developer & AI Enthusiast",
     description: "Portfolio of Tirth Bhanderi, software developer and AI enthusiast from Gujarat.",
   },
+  verification: {
+    google: "g0LTFPCnhm8KVcFzGY7csryS3NG-EOsUbbmXyJViXdU",
+  },
   robots: {
     index: true,
     follow: true,
