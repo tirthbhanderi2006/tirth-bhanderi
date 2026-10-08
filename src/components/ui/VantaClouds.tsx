@@ -49,9 +49,9 @@ export function VantaClouds() {
         });
       } else {
         vantaEffect.setOptions({
-          skyColor: 0x89c2d9,
+          skyColor: 0xe5e5e5,
           cloudColor: 0xffffff,
-          cloudShadowColor: 0x5a7c97,
+          cloudShadowColor: 0xc0c0c0,
           sunColor: 0xffb703,
           sunGlareColor: 0xfb8500,
         });

@@ -40,24 +40,33 @@ export default function Home() {
               hover: { transition: { staggerChildren: 0.04 } },
               tap: { scale: 0.95, filter: "brightness(1.5)", transition: { duration: 0.1 } }
             }}
-            className="font-serif text-6xl md:text-[8rem] lg:text-[10rem] tracking-tighter leading-none text-text mb-6 drop-shadow-sm flex cursor-pointer select-none"
+            className="font-serif text-[11vw] md:text-[8rem] lg:text-[9rem] tracking-tighter leading-none text-text mb-6 drop-shadow-sm text-center whitespace-nowrap cursor-pointer select-none"
           >
             {name.split("").map((char, i) => (
-              <span key={i} className={char === " " ? "w-[2vw]" : "relative overflow-hidden inline-block h-[1em]"}>
-                {char === " " ? null : (
-                  <motion.div
+              char === " " ? (
+                <span key={i}> </span>
+              ) : (
+                <span key={i} className="relative overflow-hidden inline-block align-bottom pb-1">
+                  {/* Primary Letter */}
+                  <motion.span
                     variants={{
-                      hover: { y: "-50%", transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] } },
+                      hover: { y: "-100%", transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] } },
                     }}
-                    className="flex flex-col h-[2em]"
+                    className="inline-block"
                   >
-                    {/* Primary Letter */}
-                    <span className="block h-[1em]">{char}</span>
-                    {/* Hover (Secondary) Letter */}
-                    <span className="block h-[1em] text-accent">{char}</span>
-                  </motion.div>
-                )}
-              </span>
+                    {char}
+                  </motion.span>
+                  {/* Hover (Secondary) Letter */}
+                  <motion.span
+                    variants={{
+                      hover: { y: "-100%", transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] } },
+                    }}
+                    className="absolute left-0 top-full inline-block text-accent"
+                  >
+                    {char}
+                  </motion.span>
+                </span>
+              )
             ))}
           </motion.h1>
           

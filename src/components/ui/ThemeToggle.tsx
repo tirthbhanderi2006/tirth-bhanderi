@@ -80,15 +80,27 @@ export function ThemeToggle() {
             }`}
           >
             <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.2 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.2 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className={`font-serif text-4xl tracking-widest uppercase ${
-                targetTheme === "dark" ? "text-white" : "text-black"
-              }`}
+              exit={{ opacity: 0, scale: 2 }}
+              transition={{ duration: 0.6, type: "spring", stiffness: 200, damping: 20 }}
+              className={`${targetTheme === "dark" ? "text-white" : "text-black"}`}
             >
-              {targetTheme} Mode
+              {targetTheme === "dark" ? (
+                <motion.div
+                  animate={{ rotate: [0, -15, 15, -10, 10, 0] }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                >
+                  <Moon size={100} strokeWidth={1} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  animate={{ rotate: 180 }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                >
+                  <Sun size={100} strokeWidth={1} />
+                </motion.div>
+              )}
             </motion.div>
           </motion.div>
         )}

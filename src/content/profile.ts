@@ -10,19 +10,19 @@ export const profile = {
     {
       role: "Backend Engineering Intern",
       company: "DEZAI",
-      date: "June 2026 – Present",
+      date: "June 2026 - Present",
       description: "Developing highly scalable AI infrastructure. Designing async microservices with FastAPI and Spring Boot to serve high-throughput embedding generation and retrieval pipelines."
     },
     {
       role: "AI Full-Stack Engineer",
       company: "HyTech Education",
-      date: "May 2026 – June 2026",
+      date: "May 2026 - June 2026",
       description: "Appointed directly by the founder to build an AI-powered curriculum compliance tool. Architected the entire solution from database schema to LLM prompt engineering in under 4 weeks."
     },
     {
       role: "Android Developer Intern",
       company: "9Brainz",
-      date: "Dec 2024 – Apr 2025",
+      date: "Dec 2024 - Apr 2025",
       description: "Developed and maintained highly scalable e-commerce Android applications. Implemented WebRTC for real-time customer support features and optimized local SQLite caching for offline mode."
     }
   ],
@@ -36,13 +36,13 @@ export const profile = {
     {
       degree: "Diploma in Computer Engineering",
       institution: "RK University",
-      date: "Sep 2023 – Apr 2025",
+      date: "Sep 2023 - Apr 2025",
       description: "Graduated with 9.63 GPA. Built foundational knowledge in data structures, hardware integration, and algorithms."
     }
   ],
   projects: [
     {
-      name: "Krushi-Netra (TFLite Offline Object Detection)",
+      name: "Krushi-Netra (TFLite, Edge AI)",
       description: "An offline-first Android application that runs real-time object detection on cattle (specifically Gir cows) using TensorFlow Lite. Handled the entire model quantization and Android CameraX integration pipeline to ensure 30fps inference on budget devices without internet access."
     },
     {
