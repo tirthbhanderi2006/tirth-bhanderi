@@ -95,9 +95,8 @@ export default function Home() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative inline-flex items-center justify-center px-8 py-3 font-mono text-sm uppercase tracking-widest text-bg bg-text overflow-hidden rounded-none hover:bg-accent hover:text-bg transition-colors duration-300"
+              className="group relative inline-flex items-center justify-center px-8 py-3 font-mono text-sm uppercase tracking-widest text-bg bg-text border border-transparent hover:bg-accent hover:text-bg transition-all duration-300"
             >
-              <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black pointer-events-none" />
               <span className="relative flex items-center gap-2">
                 Download Resume <Download size={16} className="group-hover:translate-y-1 transition-transform" />
               </span>
