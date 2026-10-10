@@ -1,6 +1,6 @@
 "use client";
 
-import { ProjectsAccordion } from "@/components/ui/ProjectsAccordion";
+import { ProjectsStickyScroll } from "@/components/ui/ProjectsStickyScroll";
 import { motion, Variants } from "framer-motion";
 import { profile } from "@/content/profile";
 import { personal } from "@/content/personal";
@@ -144,26 +144,10 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* WORK SECTION */}
-        <motion.section 
-          id="work"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="pt-12"
-        >
-          <motion.div variants={fadeUp} className="mb-12">
-            <h2 className="font-serif text-5xl md:text-6xl tracking-tight mb-4 flex items-center gap-4">
-              <FolderGit2 className="text-accent hidden md:block" size={48} /> Selected Work
-            </h2>
-            <p className="text-muted text-lg font-mono">Projects, experiments, and open source.</p>
-          </motion.div>
-          
-          <motion.div variants={fadeUp} className="bg-surface/30 backdrop-blur-md border border-border/60 rounded-[32px] p-4 md:p-8">
-            <ProjectsAccordion />
-          </motion.div>
-        </motion.section>
+        {/* WORK SECTION (Sticky Horizontal Scroll) */}
+        <div id="work">
+          <ProjectsStickyScroll />
+        </div>
 
         {/* EXPERIENCE SECTION */}
         <motion.section 

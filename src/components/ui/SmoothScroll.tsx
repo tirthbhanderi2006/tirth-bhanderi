@@ -5,7 +5,13 @@ import { ReactNode } from 'react';
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.5, smoothWheel: true }}>
+    <ReactLenis root options={{ 
+      lerp: 0.04, 
+      duration: 2, 
+      smoothWheel: true, 
+      wheelMultiplier: 0.8, 
+      touchMultiplier: 2 
+    }}>
       {children as any}
     </ReactLenis>
   );

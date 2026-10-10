@@ -43,10 +43,11 @@ export const profile = {
   projects: [
     {
       name: "Krushi-Netra (TFLite, Edge AI)",
-      description: "An offline-first Android application that runs real-time object detection on cattle (specifically Gir cows) using TensorFlow Lite. Handled the entire model quantization and Android CameraX integration pipeline to ensure 30fps inference on budget devices without internet access."
+      description: "An offline-first Android application that runs real-time object detection on cattle (12 different types of Indian cattles) using TensorFlow Lite. Handled the entire model quantization and Android CameraX integration pipeline to ensure 30fps inference on budget devices without internet access."
     },
     {
       name: "Metis (AI Interviewer / LangGraph)",
+      award: "🏆 National Level Finalist",
       description: "An intelligent mock interviewer agent built on LangGraph and OpenAI. Metis parses candidate resumes to dynamically generate highly contextual technical questions, scoring candidates on both technical depth and communication clarity in real-time."
     },
     {
@@ -62,19 +63,22 @@ export const profile = {
     { 
       name: "a2a-firewall", 
       url: "https://github.com/mananjp/a2a-firewall", 
-      language: "Python", 
-      description: "A2A Firewall — Agent Runtime Security Fabric & Zero-Trust Governance (v1.3.0)\n\nAn open-source Agent Runtime Security Fabric & Zero-Trust Governance Mesh designed to inspect, authorize, throttle, sandbox, and cryptographically audit autonomous AI agent fleets and multi-agent systems.\n\nKey Capabilities:\n- Ed25519 Cryptographic Identity & Macaroon Attenuated Delegation\n- Decision Evidence Envelopes & Deterministic Policy Replay\n- Agent Memory & RAG Write-Time Firewall (Anti-Poisoning & Rollback)\n- Stateful Multi-Agent Workflow Security (Graph Anomaly & Cascade Quarantine)\n- Lineage-Aware DLP & Reversible Tokenization Vault\n- Unified Model Gateway Provider Adapters (OpenAI, Anthropic, Bedrock, Vertex AI, Groq, Ollama)" 
+      award: "🏆 1 State & 2 National Level Finalist",
+      language: "Python",
+      description: "An open-source Agent Runtime Security Fabric & Zero-Trust Governance Mesh designed to inspect, authorize, throttle, sandbox, and cryptographically audit autonomous AI agent fleets and multi-agent systems.\n\nKey Capabilities:\n- Ed25519 Cryptographic Identity & Macaroon Attenuated Delegation\n- Decision Evidence Envelopes & Deterministic Policy Replay\n- Agent Memory & RAG Write-Time Firewall" 
     },
     { 
       name: "AI_Solution_Builder", 
       url: "https://github.com/mananjp/AI_Solution_Builder", 
-      language: "Python", 
-      description: "From Business Intent to Mounted, Production-Ready Software Systems in Minutes.\n\nAn enterprise-grade AI system that converts business ideas, BRDs, SOPs, and legacy schemas into fully functional, tenant-isolated software applications alongside traditional architecture blueprints.\n\nUnlike tools that merely produce mockups or static documentation, AI Solution Builder automatically provisions live PostgreSQL database schemas, generates headless REST APIs, mounts interactive UI sandboxes, and exports production codebases, Terraform scripts, and CI/CD pipelines.\n\nKey Components:\n- Multi-Agent Intelligence Core (LangGraph) with 7 specialized agents (Analyst, UX, DB, Code, etc.)\n- Workable System Runtime Engine with tenant-isolated PostgreSQL Schemas\n- Universal Input Ingestion (PRDs, PDFs, OpenAPI specs, URLs)\n- Dynamic AppSpec v2 with Domain Theming Engine" 
+      award: "🏆 Podium Finish",
+      language: "Python",
+      description: "From Business Intent to Mounted, Production-Ready Software Systems in Minutes.\nAn enterprise-grade AI system that converts business ideas, BRDs, SOPs, and legacy schemas into fully functional, tenant-isolated software applications alongside traditional architecture blueprints." 
     },
     { 
       name: "AegisPay", 
       url: "https://github.com/tirthbhanderi2006/AegisPay", 
-      language: "Python", 
+      award: "Personal Project",
+      language: "Python",
       description: "A secure, Python-based payment processing simulation tool. Implements simulated banking endpoints, fraud detection heuristics, and comprehensive unit tests for high-reliability fintech integrations." 
     },
   ],
