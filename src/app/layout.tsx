@@ -29,7 +29,7 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { SiteLoader } from "@/components/ui/SiteLoader";
-import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://tirth-bhanderi.vercel.app'),
@@ -118,6 +118,7 @@ export default function RootLayout({
             {children}
           </SmoothScroll>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
