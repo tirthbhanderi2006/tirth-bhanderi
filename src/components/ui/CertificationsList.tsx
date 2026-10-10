@@ -2,11 +2,17 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { profile } from "@/content/profile";
-import { Award, ArrowUpRight, FileText, X } from "lucide-react";
+import { Award, ArrowUpRight, FileText, X, Loader2, ExternalLink } from "lucide-react";
 import { useState } from "react";
 
 export function CertificationsList() {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
+  const [isPdfLoading, setIsPdfLoading] = useState(true);
+
+  const handleOpenCert = (file: string) => {
+    setSelectedCert(file);
+    setIsPdfLoading(true);
+  };
 
   if (!profile.certifications || profile.certifications.length === 0) return null;
 
@@ -16,7 +22,7 @@ export function CertificationsList() {
         {profile.certifications.map((cert, i) => (
           <motion.button
             key={i}
-            onClick={() => setSelectedCert(cert.file)}
+            onClick={() => handleOpenCert(cert.file)}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -79,11 +85,27 @@ export function CertificationsList() {
                 </button>
               </div>
               
-              <div className="flex-1 w-full bg-black/5">
+              <div className="flex-1 w-full bg-black/5 relative">
+                {isPdfLoading && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-surface z-10">
+                    <Loader2 className="animate-spin text-accent mb-4" size={40} strokeWidth={1.5} />
+                    <p className="text-muted font-mono text-sm tracking-wider uppercase mb-6">Loading document...</p>
+                    <a 
+                      href={selectedCert} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-6 py-3 bg-bg border border-border/50 rounded-full hover:border-accent hover:text-accent transition-all hover:scale-105"
+                    >
+                      <ExternalLink size={18} />
+                      Open Document Directly
+                    </a>
+                  </div>
+                )}
                 <iframe
-                  src={`${selectedCert}#toolbar=0`}
-                  className="w-full h-full border-none"
+                  src={`${selectedCert}#view=FitH&toolbar=0`}
+                  className={`w-full h-full border-none transition-opacity duration-700 ${isPdfLoading ? 'opacity-0' : 'opacity-100'}`}
                   title="Certificate Viewer"
+                  onLoad={() => setIsPdfLoading(false)}
                 />
               </div>
             </motion.div>
