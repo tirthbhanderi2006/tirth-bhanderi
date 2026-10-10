@@ -35,7 +35,7 @@ export function CertificationsList() {
               <div className="p-3 bg-bg/50 rounded-xl inline-flex items-center justify-center mb-6 border border-border/50 group-hover:border-accent/30 transition-colors">
                 <FileText className="text-muted group-hover:text-accent transition-colors" size={24} />
               </div>
-              <h3 className="font-serif text-xl md:text-2xl text-text group-hover:text-accent transition-colors leading-snug pr-8">
+              <h3 className="font-serif text-xl md:text-2xl text-text group-hover:text-accent transition-colors leading-snug pr-8 pb-1">
                 {cert.name}
               </h3>
             </div>

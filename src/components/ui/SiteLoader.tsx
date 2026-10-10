@@ -57,14 +57,6 @@ export function SiteLoader() {
             className="h-[2px] bg-accent mt-8"
           />
           
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.2 }}
-            className="font-mono text-xs md:text-sm text-muted mt-4 tracking-[0.3em] uppercase"
-          >
-            Initializing Experience
-          </motion.p>
         </motion.div>
       )}
     </AnimatePresence>

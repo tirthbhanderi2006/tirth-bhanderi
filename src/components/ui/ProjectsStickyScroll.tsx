@@ -66,7 +66,7 @@ export function ProjectsStickyScroll() {
                   )}
                 </div>
 
-                <h3 className="font-serif text-3xl md:text-4xl leading-tight mb-6 group-hover:text-accent transition-colors duration-500">
+                <h3 className="font-serif text-3xl md:text-4xl leading-tight pb-1 mb-5 group-hover:text-accent transition-colors duration-500">
                   {project.name}
                 </h3>
                 

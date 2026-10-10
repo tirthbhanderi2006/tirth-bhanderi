@@ -59,9 +59,9 @@ export default function Home() {
                   <span className="text-xl font-labelle font-bold tracking-wider text-text">#opentowork</span>
                 </motion.div>
                 
-                <motion.h1 variants={fadeUp} className="font-serif text-5xl md:text-7xl lg:text-[6rem] leading-[1.05] tracking-tight mb-6">
+                <motion.h1 variants={fadeUp} className="font-serif text-5xl md:text-7xl lg:text-[6rem] leading-[1.1] tracking-tight mb-2 pb-4">
                   Hi, I'm <span className="font-sans font-bold italic text-accent">Tirth</span>.<br />
-                  <span className="text-muted font-sans font-medium text-4xl md:text-5xl lg:text-6xl tracking-tight">Software Engineer.</span>
+                  <span className="text-muted font-sans font-medium text-4xl md:text-5xl lg:text-6xl tracking-tight inline-block leading-normal pb-2 pt-2">Software Engineer.</span>
                 </motion.h1>
               </div>
 
@@ -93,7 +93,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <motion.div id="about" variants={fadeUp} className="lg:col-span-2 bg-surface/50 backdrop-blur-xl border border-border/60 rounded-[32px] p-8 md:p-12 flex flex-col justify-center">
               <p className="font-mono text-accent text-xs mb-6 tracking-widest uppercase">01 // About</p>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif leading-relaxed">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif leading-relaxed pb-2">
                 I'm a BTech student from Gujarat with a foundation in software development and AI. <br className="hidden lg:block" />
                 I love figuring out <span className="font-sans italic font-semibold text-accent">how things work under the hood</span>, building intelligent systems, and pushing my engineering boundaries.
               </h2>
@@ -230,7 +230,7 @@ export default function Home() {
         >
           <div className="bg-surface/50 border border-border/60 rounded-[32px] p-8 md:p-16 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-accent hover:border-accent transition-colors duration-700 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight mb-6 group-hover:text-bg transition-colors duration-500 relative z-10">
+            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight mb-4 pb-2 group-hover:text-bg transition-colors duration-500 relative z-10">
               Got an idea?
             </h2>
             <p className="font-mono text-muted group-hover:text-bg/80 transition-colors duration-500 mb-12 max-w-md relative z-10">
