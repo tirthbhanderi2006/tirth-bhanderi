@@ -1,7 +1,7 @@
 export const profile = {
   identity: {
     name: "Tirth Bhanderi",
-    email: "tirthbhanderi123@gmail.com",
+    email: "bhanderitirth94@gmail.com",
     github: "https://github.com/tirthbhanderi2006",
     linkedin: "https://www.linkedin.com/in/tirth-bhanderi-345763289/",
     summary: "AI/ML Engineer specializing in full-stack development, mobile applications, and offline-first AI solutions."
