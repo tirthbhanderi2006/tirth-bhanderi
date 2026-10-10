@@ -99,5 +99,6 @@ export const profile = {
     { name: "Java Class Library", file: "/java_class_lib.pdf" },
     { name: "Cisco CCNA: Switching, Routing, and Wireless Essentials", file: "/CCNA-_Switching-_Routing-_and_Wireless_Essentials_certificate_tbhanderi872-rku-ac-in_c299e64c-de3e-41c0-af3d-244aff048967.pdf" },
     { name: "Cisco CCNA: Introduction to Networks", file: "/CCNA-_Introduction_to_Networks_certificate_tbhanderi872-rku-ac-in_8f89bd5c-3971-40aa-a0fc-ef0099980e8f.pdf" },
+    { name: "Introduction to Model Context Protocol (MCP)", file: "/intro_mcp.pdf" },
   ]
 };
