@@ -1,10 +1,11 @@
 "use client";
 
 import { ProjectsStickyScroll } from "@/components/ui/ProjectsStickyScroll";
+import { CertificationsList } from "@/components/ui/CertificationsList";
 import { motion, Variants } from "framer-motion";
 import { profile } from "@/content/profile";
 import { personal } from "@/content/personal";
-import { ArrowUpRight, Download, Mail, Briefcase, GraduationCap, FolderGit2, Terminal, Layout, Smartphone, Database, Server, BrainCircuit, Wrench } from "lucide-react";
+import { ArrowUpRight, Download, Mail, Briefcase, GraduationCap, FolderGit2, Terminal, Layout, Smartphone, Database, Server, BrainCircuit, Wrench, Award } from "lucide-react";
 import Image from "next/image";
 import { InteractiveBackground } from "@/components/ui/InteractiveBackground";
 
@@ -199,6 +200,25 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </motion.section>
+
+        {/* CERTIFICATIONS SECTION */}
+        <motion.section 
+          id="certifications"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="pt-24 pb-12"
+        >
+          <motion.div variants={fadeUp} className="mb-12">
+            <h2 className="font-serif text-5xl md:text-6xl tracking-tight mb-4 flex items-center gap-4">
+              <Award className="text-accent hidden md:block" size={48} /> Certifications
+            </h2>
+            <p className="text-muted text-lg font-mono">Verified credentials and professional training.</p>
+          </motion.div>
+          
+          <CertificationsList />
         </motion.section>
 
         {/* FOOTER */}

@@ -90,5 +90,14 @@ export const profile = {
     databases: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "SQLite"],
     ai_ml: ["LiteRT (TensorFlow Lite)","ONNX Runtime Mobile", "MCP", "RAG", "LangChain", "LangGraph"],
     tools: ["Git", "GitHub", "Docker", "Alembic"]
-  }
+  },
+  certifications: [
+    { name: "Retrieval Augmented Generation (RAG)", file: "/rag.pdf" },
+    { name: "Advanced Web Development Frameworks", file: "/web.pdf" },
+    { name: "Foundations of Data Structures and Algorithm Analysis", file: "/DSA.pdf" },
+    { name: "Algorithm Design and Analysis", file: "/algo-design.pdf" },
+    { name: "Java Class Library", file: "/java_class_lib.pdf" },
+    { name: "Cisco CCNA: Switching, Routing, and Wireless Essentials", file: "/CCNA-_Switching-_Routing-_and_Wireless_Essentials_certificate_tbhanderi872-rku-ac-in_c299e64c-de3e-41c0-af3d-244aff048967.pdf" },
+    { name: "Cisco CCNA: Introduction to Networks", file: "/CCNA-_Introduction_to_Networks_certificate_tbhanderi872-rku-ac-in_8f89bd5c-3971-40aa-a0fc-ef0099980e8f.pdf" },
+  ]
 };
