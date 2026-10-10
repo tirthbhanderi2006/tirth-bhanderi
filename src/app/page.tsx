@@ -37,7 +37,7 @@ export default function Home() {
     <div className="relative min-h-screen bg-transparent text-text selection:bg-accent/20 selection:text-bg">
       <InteractiveBackground />
 
-      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 space-y-24">
+      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 space-y-24">
         
         {/* HERO SECTION */}
         <motion.section 
@@ -80,6 +80,7 @@ export default function Home() {
                 src="/TIRTH-PORTFOLIO.png" 
                 alt="Tirth Patel" 
                 fill 
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out grayscale hover:grayscale-0"
                 priority
               />

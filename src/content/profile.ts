@@ -84,7 +84,7 @@ export const profile = {
     mobile: ["Flutter", "Android SDK", "WebRTC", "REST integration"],
     backend: ["Spring Core", "Spring Boot", "FastAPI", "Flask", "Node.js", "NestJS", "microservices"],
     databases: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "SQLite"],
-    ai_ml: ["TensorFlow Lite", "CNN (MobileNet)", "RAG", "LangChain"],
+    ai_ml: ["LiteRT (TensorFlow Lite)","ONNX Runtime Mobile", "MCP", "RAG", "LangChain", "LangGraph"],
     tools: ["Git", "GitHub", "Docker", "Alembic"]
   }
 };

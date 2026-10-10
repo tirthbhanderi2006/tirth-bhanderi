@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, JetBrains_Mono, Instrument_Serif } from "next/font/google";
+import { JetBrains_Mono, Syne, Bodoni_Moda, La_Belle_Aurore } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
 });
 
@@ -12,8 +12,14 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+const bodoniModa = Bodoni_Moda({
+  variable: "--font-bodoni",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+});
+
+const laBelleAurore = La_Belle_Aurore({
+  variable: "--font-labelle",
   weight: "400",
   subsets: ["latin"],
 });
@@ -94,7 +100,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${syne.variable} ${jetbrainsMono.variable} ${bodoniModa.variable} ${laBelleAurore.variable} h-full antialiased`}
     >
       <head>
         <script
@@ -103,15 +109,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans transition-colors duration-700 ease-in-out relative">
-        <Script 
-          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" 
-          strategy="beforeInteractive"
-        />
-        <Script 
-          src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js" 
-          strategy="beforeInteractive"
-        />
-        
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SiteLoader />
           <SmoothScroll>

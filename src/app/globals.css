@@ -7,6 +7,9 @@
   --color-text: var(--text);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --font-sans: var(--font-syne);
+  --font-serif: var(--font-bodoni);
+  --font-labelle: var(--font-labelle);
 }
 
 @layer base {
