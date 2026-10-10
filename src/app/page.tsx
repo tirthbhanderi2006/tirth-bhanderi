@@ -1,19 +1,19 @@
 "use client";
 
 import { ProjectsAccordion } from "@/components/ui/ProjectsAccordion";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { profile } from "@/content/profile";
 import { personal } from "@/content/personal";
 import { ArrowUpRight, Download, Mail, Briefcase, GraduationCap, FolderGit2, Terminal, Layout, Smartphone, Database, Server, BrainCircuit, Wrench } from "lucide-react";
 import Image from "next/image";
 import { InteractiveBackground } from "@/components/ui/InteractiveBackground";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
