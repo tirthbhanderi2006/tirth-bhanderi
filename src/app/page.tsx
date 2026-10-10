@@ -222,7 +222,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          className="pt-32 pb-12"
+          className="pt-8 pb-12"
         >
           <div className="bg-surface/50 border border-border/60 rounded-[32px] p-8 md:p-16 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-accent hover:border-accent transition-colors duration-700 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />

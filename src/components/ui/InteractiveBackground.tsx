@@ -37,9 +37,9 @@ export function InteractiveBackground() {
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} 
       />
 
-      {/* Interactive Mouse Spotlight */}
+      {/* Interactive Mouse Spotlight - Disabled on mobile for performance */}
       <motion.div
-        className="absolute w-[800px] h-[800px] rounded-full blur-[120px] opacity-30 dark:opacity-20 pointer-events-none"
+        className="hidden md:block absolute w-[800px] h-[800px] rounded-full blur-[120px] opacity-30 dark:opacity-20 pointer-events-none"
         style={{
           background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
           left: springX,
@@ -49,7 +49,7 @@ export function InteractiveBackground() {
         }}
       />
       
-      {/* Ambient floating blobs */}
+      {/* Ambient floating blobs - Disabled on mobile for performance */}
       <motion.div
         animate={{
           x: [0, 100, -50, 0],
@@ -60,7 +60,7 @@ export function InteractiveBackground() {
           repeat: Infinity,
           ease: "linear"
         }}
-        className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[150px] opacity-20 dark:opacity-10 pointer-events-none"
+        className="hidden md:block absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[150px] opacity-20 dark:opacity-10 pointer-events-none"
         style={{ background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)" }}
       />
     </div>
