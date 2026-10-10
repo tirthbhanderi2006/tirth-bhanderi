@@ -25,11 +25,11 @@ const staggerContainer: Variants = {
 };
 
 const GithubIcon = () => (
-  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.3 6-1.5 6-6.76a5.2 5.2 0 0 0-1.5-3.8 5.3 5.3 0 0 0 0-3.7s-1.2-.4-3.9 1.4a13.3 13.3 0 0 0-7 0c-2.7-1.8-3.9-1.4-3.9-1.4a5.3 5.3 0 0 0 0 3.7 5.2 5.2 0 0 0-1.5 3.8c0 5.2 3 6.4 6 6.76-.7.6-1 1.5-1 2.4V22"></path><path d="M8 22v-4"></path></svg>
+  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="mb-0.5"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.3 6-1.5 6-6.76a5.2 5.2 0 0 0-1.5-3.8 5.3 5.3 0 0 0 0-3.7s-1.2-.4-3.9 1.4a13.3 13.3 0 0 0-7 0c-2.7-1.8-3.9-1.4-3.9-1.4a5.3 5.3 0 0 0 0 3.7 5.2 5.2 0 0 0-1.5 3.8c0 5.2 3 6.4 6 6.76-.7.6-1 1.5-1 2.4V22"></path><path d="M8 22v-4"></path></svg>
 );
 
 const LinkedinIcon = () => (
-  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="mb-0.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
 );
 
 export default function Home() {
@@ -237,14 +237,29 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="mt-24 w-full flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-muted border-t border-border/50 pt-8 px-4">
-            <p>© 2026 Tirth Bhanderi.</p>
-            <div className="flex items-center gap-6">
-              <a href={profile.identity.github} target="_blank" className="hover:text-accent transition-colors">GitHub</a>
-              <a href={profile.identity.linkedin} target="_blank" className="hover:text-accent transition-colors">LinkedIn</a>
-              <a href={profile.identity.email} className="hover:text-accent transition-colors">Email</a>
+          <div className="mt-32 w-full flex flex-col md:flex-row justify-between items-center gap-8 text-sm font-sans text-muted border-t border-border/40 pt-12 px-4">
+            <div className="flex flex-col gap-2 items-center md:items-start text-center md:text-left">
+              <p className="font-bold text-text uppercase tracking-widest text-xs">Tirth Bhanderi</p>
+              <p className="font-mono text-xs opacity-70">© 2026 All rights reserved.</p>
             </div>
-            <p>Designed with <span className="text-accent">Intent</span>.</p>
+            
+            <div className="flex flex-col gap-4 items-center md:items-end text-center md:text-right">
+              <p className="font-bold text-text uppercase tracking-widest text-xs">Connect</p>
+              <div className="flex items-center gap-6 font-mono text-xs">
+                <a href={profile.identity.github} target="_blank" className="flex items-center gap-1.5 hover:text-accent transition-all hover:-translate-y-1">
+                  <GithubIcon />
+                  <span className="leading-none mt-1">GitHub</span>
+                </a>
+                <a href={profile.identity.linkedin} target="_blank" className="flex items-center gap-1.5 hover:text-accent transition-all hover:-translate-y-1">
+                  <LinkedinIcon />
+                  <span className="leading-none mt-1">LinkedIn</span>
+                </a>
+                <a href={`mailto:${profile.identity.email}`} className="flex items-center gap-1.5 hover:text-accent transition-all hover:-translate-y-1">
+                  <Mail size={16} strokeWidth={2} className="mb-0.5" />
+                  <span className="leading-none mt-1">Email</span>
+                </a>
+              </div>
+            </div>
           </div>
         </motion.footer>
 
