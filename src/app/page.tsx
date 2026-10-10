@@ -1,323 +1,253 @@
 "use client";
+
 import { ProjectsAccordion } from "@/components/ui/ProjectsAccordion";
-import { VantaClouds } from "@/components/ui/VantaClouds";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { profile } from "@/content/profile";
 import { personal } from "@/content/personal";
-import { Download, Mail } from "lucide-react";
+import { ArrowUpRight, Download, Mail, Briefcase, GraduationCap, FolderGit2, Terminal, Layout, Smartphone, Database, Server, BrainCircuit, Wrench } from "lucide-react";
+import Image from "next/image";
+import { InteractiveBackground } from "@/components/ui/InteractiveBackground";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    }
+  }
+};
+
+const GithubIcon = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.3 6-1.5 6-6.76a5.2 5.2 0 0 0-1.5-3.8 5.3 5.3 0 0 0 0-3.7s-1.2-.4-3.9 1.4a13.3 13.3 0 0 0-7 0c-2.7-1.8-3.9-1.4-3.9-1.4a5.3 5.3 0 0 0 0 3.7 5.2 5.2 0 0 0-1.5 3.8c0 5.2 3 6.4 6 6.76-.7.6-1 1.5-1 2.4V22"></path><path d="M8 22v-4"></path></svg>
+);
+
+const LinkedinIcon = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+);
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const yHero = useTransform(scrollYProgress, [0, 1], [0, 300]);
-
-  const name = "TIRTH BHANDERI";
-
   return (
-    <div className="relative min-h-[300vh] overflow-x-hidden selection:bg-accent/20">
-      <VantaClouds />
-      
-      {/* 1. Hero Section */}
-      <section className="relative h-screen w-full flex flex-col items-center justify-center text-center px-4 z-10">
-        <motion.div 
-          style={{ y: yHero }} 
-          className="max-w-5xl mx-auto flex flex-col items-center"
+    <div className="relative min-h-screen bg-transparent text-text selection:bg-accent/20 selection:text-bg">
+      <InteractiveBackground />
+
+      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 space-y-24">
+        
+        {/* HERO SECTION */}
+        <motion.section 
+          variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } }
-          }}
+          className="flex flex-col gap-6"
         >
-          {/* Name with Pro Hover/Click Effect */}
-          <motion.h1 
-            initial="hidden"
-            animate="visible"
-            whileHover="hover"
-            whileTap="tap"
-            variants={{
-              hidden: { opacity: 0, y: 50, filter: "blur(10px)" },
-              visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } },
-              hover: { transition: { staggerChildren: 0.04 } },
-              tap: { scale: 0.95, filter: "brightness(1.5)", transition: { duration: 0.1 } }
-            }}
-            className="font-serif text-[11vw] md:text-[8rem] lg:text-[9rem] tracking-tighter leading-none text-text mb-6 drop-shadow-sm text-center whitespace-nowrap cursor-pointer select-none"
-          >
-            {name.split("").map((char, i) => (
-              char === " " ? (
-                <span key={i}> </span>
-              ) : (
-                <span key={i} className="relative overflow-hidden inline-block align-bottom pb-1">
-                  {/* Primary Letter */}
-                  <motion.span
-                    variants={{
-                      hover: { y: "-100%", transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] } },
-                    }}
-                    className="inline-block"
-                  >
-                    {char}
-                  </motion.span>
-                  {/* Hover (Secondary) Letter */}
-                  <motion.span
-                    variants={{
-                      hover: { y: "-100%", transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] } },
-                    }}
-                    className="absolute left-0 top-full inline-block text-accent"
-                  >
-                    {char}
-                  </motion.span>
-                </span>
-              )
-            ))}
-          </motion.h1>
-          
-          <motion.p 
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } }
-            }}
-            className="font-mono text-sm md:text-lg tracking-[0.3em] text-accent uppercase font-medium mb-12"
-          >
-            AI/ML Engineer · Full-Stack · Mobile
-          </motion.p>
-          
-          {/* Action & Contact Buttons */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.8, ease: "easeOut" } }
-            }}
-            className="flex flex-wrap items-center justify-center gap-4"
-          >
-            {/* Resume Button */}
-            <motion.a 
-              href="/resume.pdf" 
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative inline-flex items-center justify-center px-8 py-3 font-mono text-sm uppercase tracking-widest text-bg bg-text border border-transparent hover:bg-accent hover:text-bg transition-all duration-300"
-            >
-              <span className="relative flex items-center gap-2">
-                Download Resume <Download size={16} className="group-hover:translate-y-1 transition-transform" />
-              </span>
-            </motion.a>
+          {/* Top Row: Intro & Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            {/* Intro Card */}
+            <motion.div variants={fadeUp} className="lg:col-span-8 bg-surface/50 backdrop-blur-xl border border-border/60 rounded-[32px] p-8 md:p-12 flex flex-col justify-between min-h-[400px] relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              <div>
+                <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-bg/50 mb-8">
+                  <span className="text-xl font-labelle font-bold tracking-wider text-text">#opentowork</span>
+                </motion.div>
+                
+                <motion.h1 variants={fadeUp} className="font-serif text-5xl md:text-7xl lg:text-[6rem] leading-[1.05] tracking-tight mb-6">
+                  Hi, I'm <span className="font-sans font-bold italic text-accent">Tirth</span>.<br />
+                  <span className="text-muted font-sans font-medium text-4xl md:text-5xl lg:text-6xl tracking-tight">Software Engineer.</span>
+                </motion.h1>
+              </div>
 
-            {/* Social Links */}
-            <div className="flex gap-2">
-              <motion.a whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }} href={profile.identity.github} target="_blank" rel="noopener noreferrer" className="p-3 border border-border bg-bg/50 backdrop-blur-sm text-text hover:text-accent hover:border-accent/50 transition-all duration-300">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.3 6-1.5 6-6.76a5.2 5.2 0 0 0-1.5-3.8 5.3 5.3 0 0 0 0-3.7s-1.2-.4-3.9 1.4a13.3 13.3 0 0 0-7 0c-2.7-1.8-3.9-1.4-3.9-1.4a5.3 5.3 0 0 0 0 3.7 5.2 5.2 0 0 0-1.5 3.8c0 5.2 3 6.4 6 6.76-.7.6-1 1.5-1 2.4V22"></path><path d="M8 22v-4"></path></svg>
-              </motion.a>
-              <motion.a whileHover={{ scale: 1.1, rotate: -5 }} whileTap={{ scale: 0.9 }} href={profile.identity.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 border border-border bg-bg/50 backdrop-blur-sm text-text hover:text-accent hover:border-accent/50 transition-all duration-300">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              </motion.a>
-              <motion.a whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }} href={`mailto:${profile.identity.email}`} className="p-3 border border-border bg-bg/50 backdrop-blur-sm text-text hover:text-accent hover:border-accent/50 transition-all duration-300">
-                <Mail size={20} />
-              </motion.a>
-            </div>
-          </motion.div>
-        </motion.div>
-        
-        {/* Animated Mouse Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.5, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
-        >
-          <span className="font-mono text-[10px] text-muted tracking-[0.3em] uppercase">Scroll to explore</span>
-          <div className="w-5 h-8 border-2 border-muted/30 rounded-full flex justify-center p-1 relative overflow-hidden">
-             <motion.div
-               animate={{ y: [0, 12, 0], opacity: [1, 0.5, 1] }}
-               transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-               className="w-1 h-1.5 bg-accent rounded-full"
-             />
+              <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4 mt-8">
+                <a href="#work" className="px-6 py-3 rounded-full bg-text text-bg font-medium hover:scale-105 transition-transform flex items-center gap-2">
+                  View Work <ArrowUpRight size={18} />
+                </a>
+                <a href="/resume.pdf" target="_blank" className="px-6 py-3 rounded-full border border-border hover:bg-surface transition-colors flex items-center gap-2">
+                  Resume <Download size={18} />
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* Photo Card */}
+            <motion.div variants={fadeUp} className="lg:col-span-4 bg-surface border border-border/60 rounded-[32px] overflow-hidden relative min-h-[400px] group">
+              <Image 
+                src="/TIRTH-PORTFOLIO.png" 
+                alt="Tirth Patel" 
+                fill 
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out grayscale hover:grayscale-0"
+                priority
+              />
+              <div className="absolute inset-0 border border-border/20 rounded-[32px] pointer-events-none" />
+            </motion.div>
           </div>
-        </motion.div>
-      </section>
 
-      {/* 2. About Section */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={{
-          hidden: {},
-          visible: { transition: { staggerChildren: 0.2 } }
-        }}
-        className="relative min-h-[70vh] w-full flex items-center z-10 border-t border-border bg-surface/30 backdrop-blur-sm py-24"
-      >
-        <div className="max-w-5xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, x: -50 },
-              visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
-            }}
-          >
-             <p className="font-mono text-accent text-xs mb-4 tracking-widest uppercase">01 // About Me</p>
-             <h2 className="font-serif text-4xl md:text-6xl text-text mb-8">Engineering beyond code.</h2>
-          </motion.div>
-          <motion.div 
-            variants={{
-              hidden: { opacity: 0, x: 50 },
-              visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
-            }}
-            className="font-mono text-sm md:text-base text-muted leading-relaxed"
-          >
-             <motion.p
-               variants={{
-                 hidden: {},
-                 visible: { transition: { staggerChildren: 0.02 } }
-               }}
-             >
-               {"BTech student from Gujarat, currently in my 3rd year after completing a diploma. Into software development, AI, and figuring out how things work under the hood. Always learning, occasionally overthinking, and somehow managing to keep life interesting.".split(" ").map((word, i) => (
-                 <span key={i} className="inline-block overflow-hidden mr-[0.25em]">
-                   <motion.span
-                     variants={{
-                       hidden: { y: "100%", opacity: 0 },
-                       visible: { y: "0%", opacity: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
-                     }}
-                     className="inline-block"
-                   >
-                     {word}
-                   </motion.span>
-                 </span>
-               ))}
-             </motion.p>
-          </motion.div>
-        </div>
-      </motion.section>
+          {/* Bottom Row: About & Socials */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <motion.div id="about" variants={fadeUp} className="lg:col-span-2 bg-surface/50 backdrop-blur-xl border border-border/60 rounded-[32px] p-8 md:p-12 flex flex-col justify-center">
+              <p className="font-mono text-accent text-xs mb-6 tracking-widest uppercase">01 // About</p>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif leading-relaxed">
+                I'm a BTech student from Gujarat with a foundation in software development and AI. <br className="hidden lg:block" />
+                I love figuring out <span className="font-sans italic font-semibold text-accent">how things work under the hood</span>, building intelligent systems, and pushing my engineering boundaries.
+              </h2>
+            </motion.div>
+            
+            <motion.div variants={fadeUp} className="lg:col-span-1 bg-accent text-bg rounded-[32px] p-8 md:p-12 flex flex-col justify-between">
+              <div>
+                <p className="font-mono text-sm uppercase tracking-widest opacity-80 mb-2">Connect</p>
+                <h3 className="text-3xl lg:text-4xl font-serif leading-tight">Let's build<br />something.</h3>
+              </div>
+              <div className="flex gap-4 mt-8">
+                <a href={profile.identity.github} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-bg text-text flex items-center justify-center hover:scale-110 transition-transform">
+                  <GithubIcon />
+                </a>
+                <a href={profile.identity.linkedin} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-bg text-text flex items-center justify-center hover:scale-110 transition-transform">
+                  <LinkedinIcon />
+                </a>
+                <a href={`mailto:${profile.identity.email}`} className="w-12 h-12 rounded-full bg-bg text-text flex items-center justify-center hover:scale-110 transition-transform">
+                  <Mail size={20} />
+                </a>
+              </div>
+            </motion.div>
+          </div>
 
-      {/* 3. Projects Showcase (ProjectsAccordion) */}
-      <section className="relative min-h-screen w-full z-10 border-t border-border bg-bg/30 backdrop-blur-md flex flex-col py-24">
-        <div className="max-w-4xl mx-auto px-6 md:px-12 text-center mb-16">
-          <p className="font-mono text-accent text-xs mb-4 tracking-widest uppercase">02 // The Work</p>
-          <h2 className="font-serif text-4xl md:text-6xl text-text mb-4">Selected Projects</h2>
-          <p className="font-mono text-muted text-sm max-w-2xl mx-auto">
-            A comprehensive list of core architectures and open source contributions.
-          </p>
-        </div>
-        
-        {/* Sleek Accordion Layout */}
-        <div className="w-full">
-          <div className="max-w-5xl mx-auto px-4">
+          {/* Skills Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {Object.entries(profile.skills).map(([category, items], idx) => {
+              const icons: any = {
+                languages: <Terminal size={14} />,
+                frontend: <Layout size={14} />,
+                mobile: <Smartphone size={14} />,
+                backend: <Server size={14} />,
+                databases: <Database size={14} />,
+                ai_ml: <BrainCircuit size={14} />,
+                tools: <Wrench size={14} />,
+              };
+              return (
+              <motion.div variants={fadeUp} key={category} className="bg-surface/50 backdrop-blur-xl border border-border/60 rounded-[32px] p-6 md:p-8 hover:border-accent/30 transition-colors">
+                <h3 className="font-mono text-accent text-xs mb-4 uppercase tracking-widest flex items-center gap-2">
+                  {icons[category] || <Terminal size={14} />} {category.replace('_', ' ')}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((item: string, i: number) => (
+                    <span key={i} className="text-xs font-mono text-muted px-3 py-1.5 bg-border/40 border border-border/50 rounded-full">{item}</span>
+                  ))}
+                </div>
+              </motion.div>
+            )})}
+          </div>
+        </motion.section>
+
+        {/* WORK SECTION */}
+        <motion.section 
+          id="work"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="pt-12"
+        >
+          <motion.div variants={fadeUp} className="mb-12">
+            <h2 className="font-serif text-5xl md:text-6xl tracking-tight mb-4 flex items-center gap-4">
+              <FolderGit2 className="text-accent hidden md:block" size={48} /> Selected Work
+            </h2>
+            <p className="text-muted text-lg font-mono">Projects, experiments, and open source.</p>
+          </motion.div>
+          
+          <motion.div variants={fadeUp} className="bg-surface/30 backdrop-blur-md border border-border/60 rounded-[32px] p-4 md:p-8">
             <ProjectsAccordion />
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </motion.section>
 
-      {/* 4. Experience & Loadout */}
-      <section className="relative z-10 py-32 border-t border-border bg-surface/50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-24">
-          
-          {/* Experience Timeline */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.15 } }
-            }}
-          >
-            <p className="font-mono text-accent text-xs mb-4 tracking-widest uppercase">03 // Timeline</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-text mb-16">Experience</h2>
-            <div className="relative border-l border-border/50 ml-3 md:ml-4 space-y-16">
+        {/* EXPERIENCE SECTION */}
+        <motion.section 
+          id="experience"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="pt-12 grid lg:grid-cols-2 gap-12"
+        >
+          {/* Experience */}
+          <div>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl mb-8 flex items-center gap-3">
+              <Briefcase className="text-accent" size={32} /> Experience
+            </motion.h2>
+            <div className="space-y-6">
               {profile.experience.map((exp, i) => (
-                <motion.div 
-                  key={i} 
-                  variants={{
-                    hidden: { opacity: 0, x: -30 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
-                  }}
-                  className="relative pl-8 md:pl-12 group"
-                >
-                  {/* Glowing Timeline Dot */}
-                  <div className="absolute w-3 h-3 bg-bg border-2 border-accent rounded-full -left-[6px] top-2 group-hover:bg-accent group-hover:shadow-[0_0_15px_rgba(var(--accent),0.8)] transition-all duration-500" />
-                  
-                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2 gap-2">
-                    <h3 className="font-serif text-2xl md:text-3xl text-text group-hover:text-accent group-hover:translate-x-2 transition-all duration-300">{exp.company}</h3>
-                    <span className="font-mono text-xs text-accent/80 border border-accent/20 bg-accent/5 px-3 py-1 rounded-full whitespace-nowrap">{exp.date}</span>
+                <motion.div variants={fadeUp} key={i} className="group p-6 rounded-2xl bg-surface/50 border border-border/60 hover:border-accent/50 transition-colors">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-xl font-medium group-hover:text-accent transition-colors">{exp.company}</h3>
+                      <p className="text-muted text-sm mt-1">{exp.role}</p>
+                    </div>
+                    <span className="font-mono text-xs px-3 py-1 rounded-full bg-surface border border-border whitespace-nowrap">{exp.date}</span>
                   </div>
-                  <h4 className="font-mono text-sm text-text font-bold mb-4 tracking-wide">{exp.role}</h4>
-                  <p className="font-mono text-sm text-muted leading-relaxed max-w-lg">{exp.description}</p>
+                  <p className="text-sm text-muted leading-relaxed">{exp.description}</p>
                 </motion.div>
               ))}
             </div>
+          </div>
 
-            <h2 className="font-serif text-4xl md:text-5xl text-text mt-24 mb-16">Education</h2>
-            <div className="relative border-l border-border/50 ml-3 md:ml-4 space-y-16">
+          {/* Education */}
+          <div>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl mb-8 flex items-center gap-3">
+              <GraduationCap className="text-accent" size={32} /> Education
+            </motion.h2>
+            <div className="space-y-6">
               {profile.education.map((edu, i) => (
-                <motion.div 
-                  key={i} 
-                  variants={{
-                    hidden: { opacity: 0, x: -30 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
-                  }}
-                  className="relative pl-8 md:pl-12 group"
-                >
-                  {/* Glowing Timeline Dot */}
-                  <div className="absolute w-3 h-3 bg-bg border-2 border-accent rounded-full -left-[6px] top-2 group-hover:bg-accent group-hover:shadow-[0_0_15px_rgba(var(--accent),0.8)] transition-all duration-500" />
-                  
-                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2 gap-2">
-                    <h3 className="font-serif text-2xl md:text-3xl text-text group-hover:text-accent group-hover:translate-x-2 transition-all duration-300">{edu.institution}</h3>
-                    <span className="font-mono text-xs text-accent/80 border border-accent/20 bg-accent/5 px-3 py-1 rounded-full whitespace-nowrap">{edu.date}</span>
+                <motion.div variants={fadeUp} key={i} className="group p-6 rounded-2xl bg-surface/50 border border-border/60 hover:border-accent/50 transition-colors">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-xl font-medium group-hover:text-accent transition-colors">{edu.institution}</h3>
+                      <p className="text-muted text-sm mt-1">{edu.degree}</p>
+                    </div>
+                    <span className="font-mono text-xs px-3 py-1 rounded-full bg-surface border border-border whitespace-nowrap">{edu.date}</span>
                   </div>
-                  <h4 className="font-mono text-sm text-text font-bold mb-4 tracking-wide">{edu.degree}</h4>
-                  <p className="font-mono text-sm text-muted leading-relaxed max-w-lg">{edu.description}</p>
+                  <p className="text-sm text-muted leading-relaxed">{edu.description}</p>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
+        </motion.section>
 
-          {/* Loadout / Skills Grid */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.1 } }
-            }}
-          >
-            <p className="font-mono text-accent text-xs mb-4 tracking-widest uppercase">04 // Loadout</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-text mb-16">Tech Stack</h2>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {Object.entries(profile.skills).map(([category, items], idx) => (
-                <motion.div 
-                  whileHover={{ y: -5 }}
-                  key={category}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
-                  }}
-                  className="p-6 rounded-2xl border border-border bg-bg/50 backdrop-blur-sm hover:bg-surface/80 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500 group"
-                >
-                  <h3 className="font-mono text-accent text-sm mb-6 uppercase flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                    {category.replace('_', ' ')}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {items.map((item: string, i: number) => (
-                      <span 
-                        key={i} 
-                        className="font-mono text-xs text-text/90 bg-border/40 border border-border/50 px-3 py-1.5 rounded-md group-hover:border-accent/20 transition-colors duration-300"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+        {/* FOOTER */}
+        <motion.footer 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="pt-32 pb-12"
+        >
+          <div className="bg-surface/50 border border-border/60 rounded-[32px] p-8 md:p-16 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-accent hover:border-accent transition-colors duration-700 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight mb-6 group-hover:text-bg transition-colors duration-500 relative z-10">
+              Got an idea?
+            </h2>
+            <p className="font-mono text-muted group-hover:text-bg/80 transition-colors duration-500 mb-12 max-w-md relative z-10">
+              Let's build something extraordinary together. I'm always open to discussing new projects, creative ideas, or opportunities.
+            </p>
+            <a href={`mailto:${profile.identity.email}`} className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-text text-bg group-hover:bg-bg group-hover:text-accent font-bold text-lg hover:scale-105 transition-all duration-300 relative z-10">
+              Start a conversation <ArrowUpRight />
+            </a>
+          </div>
+
+          <div className="mt-24 w-full flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-muted border-t border-border/50 pt-8 px-4">
+            <p>© 2026 Tirth Bhanderi.</p>
+            <div className="flex items-center gap-6">
+              <a href={profile.identity.github} target="_blank" className="hover:text-accent transition-colors">GitHub</a>
+              <a href={profile.identity.linkedin} target="_blank" className="hover:text-accent transition-colors">LinkedIn</a>
+              <a href={profile.identity.email} className="hover:text-accent transition-colors">Email</a>
             </div>
-          </motion.div>
+            <p>Designed with <span className="text-accent">Intent</span>.</p>
+          </div>
+        </motion.footer>
 
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="relative z-10 py-12 border-t border-border bg-bg text-center font-mono text-xs text-muted">
-         <p>© 2026 TIRTH BHANDERI. Built for the future.</p>
-      </footer>
+      </main>
     </div>
   );
 }
